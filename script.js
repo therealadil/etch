@@ -1,42 +1,41 @@
 
-   let gridNumber = 5;
+   let startButton = document.createElement('button')
+   let body = document.querySelector('body')
+   let container = document.querySelector('#container')
+   body.insertBefore(startButton, container)
+
+
+   startButton.innerHTML = "RESET"
+
+
+   function alpha () {
+    let lol = prompt("what's your name")
+    return lol
+   }
    
-   for (i=0; i<gridNumber; i++) {
-        let hello = document.createElement('div')
+   startButton.onclick = () => alpha();
+   
+
+//    Logic for making grid that changes color
+   
+   for (i = 0; i < 5; i++) {
+        let gridSquare = document.createElement('div')
     
-        hello.style.background = "red"
-        hello.style.height = "100px"
-        hello.style.flex = "1"
+        gridSquare.style.background = "white"
+        gridSquare.style.height = "100px"
+        gridSquare.style.flex = "1"
+        gridSquare.style.border = "solid 1px"
+
+        gridSquare.addEventListener('mouseover', function(e){
+            let color = Math.floor((Math.random()*256)+1)
+            let color2 = Math.floor((Math.random()*256)+1)
+            let color3 = Math.floor((Math.random()*256)+1)
+            gridSquare.style.background = `rgb(${color}, ${color2}, ${color3})`;
+        })
         
-        let container = document.querySelector('#container')
-        
-        container.appendChild(hello)
+        container.appendChild(gridSquare)
     }
     
-    
-    // let mydiv = document.createElement('div')
-    // mydiv.style.height = "200px"
-    // mydiv.style.background = "black"
-    // let thecontainer = document.querySelector('#container')
-    // thecontainer.appendChild(myDiv)
-
-
-
-
-
-
-// let div = document.querySelectorAll(".myDiv")
-
-
-// div.forEach((divs) => { 
-//     divs.addEventListener('click', function(e){
-//         let color = Math.floor((Math.random()*256)+1)
-//         let color2 = Math.floor((Math.random()*256)+1)
-//         let color3 = Math.floor((Math.random()*256)+1)
-//         divs.style.background = `rgb(${color}, ${color2}, ${color3})`;
-//     })
-    
-// } )
 
 
 
